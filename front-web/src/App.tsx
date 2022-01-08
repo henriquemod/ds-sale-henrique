@@ -24,7 +24,7 @@ function App() {
         const newSalesByStore = buildSalesByStoreChart(response.data);
         setSalesByStore(newSalesByStore);
       })
-      .catch(() => console.log('Error to fetch sales by date'));
+      .catch(() => console.log('Error to fetch sales by Store'));
   }, [params]);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function App() {
         const newSalesByPaymentMethod = buildSalesByPaymentMethod(response.data);
         setSalesByPaymentMethod(newSalesByPaymentMethod);
       })
-      .catch(() => console.log('Error to fetch sales by date'));
+      .catch(() => console.log('Error to fetch sales by Payment Method'));
   }, [params]);
 
   const onFilterChange = (filter: FilterData) => {
@@ -55,7 +55,7 @@ function App() {
             series={SalesByPaymentMethod?.series}
           />
         </div>
-        <SalesTable />
+        <SalesTable filterData={filterData} />
       </div>
     </>
   );
